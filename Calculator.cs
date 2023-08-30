@@ -13,11 +13,11 @@ namespace hwLesson12
         {
             if (b == 0)
             {
-                dividedByZero.Invoke(null, new EventArgs());
+                dividedByZero?.Invoke(null, new EventArgs());
                 return null;
             }
-            else
-                return a / b;
+
+            return a / b;
         }
 
         public double? Add(double a, double b) =>
