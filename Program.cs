@@ -25,20 +25,14 @@
                 char operation = Char.Parse(Console.ReadLine());
 
                 Calculator calculator = new Calculator();
-
-                if (operation == '/' && b == 0)
-                {
-                    calculator.dividedByZero += new EventHandler(Handler);
-                    calculator.InvokeEvent(null, new EventArgs());
-                    continue;
-                }               
+                calculator.dividedByZero += new EventHandler(Handler);
 
                 Calculate calculate = operation switch
                 {
-                    '+' => Calculator.Add,
-                    '-' => Calculator.Sub,
-                    '*' => Calculator.Mul,
-                    '/' => Calculator.Div,
+                    '+' => calculator.Add,
+                    '-' => calculator.Sub,
+                    '*' => calculator.Mul,
+                    '/' => calculator.Div,
                 };
 
                 Console.WriteLine($"{a} {operation} {b} = {calculate(a, b)}");
