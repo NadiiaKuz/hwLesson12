@@ -1,6 +1,6 @@
 ﻿namespace hwLesson12
 {
-    public delegate double Calculate(double x, double y);
+    public delegate double? Calculate(double x, double y);
 
     internal class Program
     {
@@ -35,7 +35,10 @@
                     '/' => calculator.Div,
                 };
 
-                Console.WriteLine($"{a} {operation} {b} = {calculate(a, b)}");
+                var result = calculate(a, b);
+
+                if (result is not null) 
+                    Console.WriteLine($"{a} {operation} {b} = {result}");
             }
         }
     }
