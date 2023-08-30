@@ -4,21 +4,9 @@
     {        
         public event EventHandler dividedByZero = null;
 
-        public Calculator()
+        public void InvokeEvent(object sender, EventArgs e)
         {
-            dividedByZero += new EventHandler(Handler);
-        }
-        
-        static private void Handler(object sender, EventArgs e)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Divided by 0");
-            Console.ResetColor();
-        }
-
-        public void InvokeEvent()
-        {
-            dividedByZero.Invoke(null, new EventArgs());
+            dividedByZero.Invoke(sender, e);
         }
 
         public static double Mul(double a, double b) =>

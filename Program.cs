@@ -4,6 +4,12 @@
 
     internal class Program
     {
+        static private void Handler(object sender, EventArgs e)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Divided by 0");
+            Console.ResetColor();
+        }
 
         static void Main(string[] args)
         {
@@ -22,9 +28,10 @@
 
                 if (operation == '/' && b == 0)
                 {
-                    calculator.InvokeEvent();
+                    calculator.dividedByZero += new EventHandler(Handler);
+                    calculator.InvokeEvent(null, new EventArgs());
                     continue;
-                }
+                }               
 
                 Calculate calculate = operation switch
                 {
